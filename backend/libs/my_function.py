@@ -1,5 +1,4 @@
 import math
-
 import pandas as pd
 
 from decimal import Decimal, ROUND_HALF_UP  # class RoundUtilに必要ライブラリー
@@ -23,8 +22,8 @@ def generated_power_amount(H_MJ, month):
     H_MJ: 斜面日射量(MJ/m2)
     H_kWh: 斜面日射量(kWh/m2)
     """
-    df_K = pd.read_csv('./frontend/data/基本設計係数.csv', header=None)
-    df_Kpt = pd.read_csv('./frontend/data/月別温度補正係数.csv')
+    df_K = pd.read_csv('./backend/data/基本設計係数.csv', header=None)
+    df_Kpt = pd.read_csv('./backend/data/月別温度補正係数.csv')
 
     # 予報日付の月から月別温度補正係数を格納
     K_pt = df_Kpt['KPT'][df_Kpt['month']==(str(month) + '月')].iloc[-1]

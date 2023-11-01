@@ -15,7 +15,7 @@ async def predict_auto(query: autos.AutoIn):
     # return {'result': query.forecasts.minTemp}
 
 @app.get("/manual", response_model=manuals.ManualOut)
-async def predict(query: manuals.ManualIn = Depends()):
+async def predict_manual(query: manuals.ManualIn = Depends()):
     """入力値から明日の太陽光発電量予測"""
     return {'result':manual_solar.get_power_generations(query)}
     # return {'result': query.amt}
